@@ -1,0 +1,28 @@
+class Solution {
+    public String countAndSay(int n) {
+       if(n==1)
+        return "1";
+       if(n==2)
+        return "11";
+        int n1=n;
+        String ans="11";
+        
+        for(int i = 3;i<=n;i++){
+            ans = ans+"#";
+            int len = ans.length();
+            int ct = 1;
+            String str="";
+            char[] ar = ans.toCharArray();
+            for(int j=1;j<len;j++){
+                if(ar[j]!=ar[j-1]){
+                    str= str + ct;
+                    str = str + ar[j-1];
+                    ct=1;
+                }
+                else ct++;
+            }
+            ans = str;
+        }
+        return ans; 
+    }
+}
